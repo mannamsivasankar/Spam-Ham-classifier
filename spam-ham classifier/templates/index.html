@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Intelligence & Content Moderation Suite</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Background mesh blobs -->
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="logo-text">
+                    <h1>Aegis NLP</h1>
+                    <span>Model Center</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-item active" data-tab="dashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                    Overview
+                </button>
+                <button class="nav-item" data-tab="spam-classifier">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Spam Sentinel
+                </button>
+                <button class="nav-item" data-tab="tweet-classifier">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    Tweet Guard
+                </button>
+                <button class="nav-item" data-tab="analytics">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Model Analytics
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="version">v1.2.0 • Production</div>
+                <div class="status-indicator">
+                    <span class="pulse-dot"></span>
+                    Models Loaded
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title">
+                    <h2 id="page-title">Project Overview</h2>
+                    <p id="page-subtitle">Interactive analysis and metrics dashboard for NLP models</p>
+                </div>
+                <div class="system-time">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                    <span id="current-time">17:42</span>
+                </div>
+            </header>
+
+            <div class="scroll-container">
+                <!-- ================= TAB: OVERVIEW ================= -->
+                <section class="tab-pane active" id="tab-dashboard">
+                    <div class="dashboard-hero">
+                        <div class="hero-text">
+                            <h3>Supervised Natural Language Processing Suite</h3>
+                            <p>Real-time spam filtering and advanced social sentiment safety moderations powered by optimized machine learning models.</p>
+                        </div>
+                        <div class="quick-stats">
+                            <div class="stat-bubble">
+                                <span class="val">96.8%</span>
+                                <span class="lbl">Spam Accuracy</span>
+                            </div>
+                            <div class="stat-bubble">
+                                <span class="val">92.0%</span>
+                                <span class="lbl">Tweet Accuracy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-layout cols-2">
+                        <!-- Model Card 1 -->
+                        <div class="glass-card model-overview-card">
+                            <div class="card-header">
+                                <div class="badge spam-badge">Spam-Ham Classifier</div>
+                                <h4>Spam Sentinel</h4>
+                            </div>
+                            <p class="description">Classifies messages as spam or legitimate ham. Engineered with TfidfVectorizer and Multinomial Naive Bayes.</p>
+                            <ul class="spec-list">
+                                <li><strong>Accuracy:</strong> <span class="highlight-green" id="spam-acc-lbl">96.77%</span></li>
+                                <li><strong>Feature Set:</strong> TF-IDF Word Vectorization</li>
+                                <li><strong>Target:</strong> Spam vs Ham SMS Messages</li>
+                            </ul>
+                            <button class="btn btn-primary btn-full" onclick="switchTab('spam-classifier')">Launch Playground</button>
+                        </div>
+
+                        <!-- Model Card 2 -->
+                        <div class="glass-card model-overview-card">
+                            <div class="card-header">
+                                <div class="badge tweet-badge">Tweet Safety Classifier</div>
+                                <h4>Tweet Guard</h4>
+                            </div>
+                            <p class="description">Moderates Twitter posts into Hate Speech, Offensive Language, or Normal categories. Implemented with NLTK lemmatization, CountVectorizer, SelectPercentile (35% feature reduction), and a Linear SVC classifier.</p>
+                            <ul class="spec-list">
+                                <li><strong>Accuracy:</strong> <span class="highlight-green" id="tweet-acc-lbl">92.02%</span></li>
+                                <li><strong>Feature Selection:</strong> Chi-2 Select Percentile (Top 65% retained)</li>
+                                <li><strong>Categories:</strong> Hate Speech, Offensive, Normal</li>
+                            </ul>
+                            <button class="btn btn-primary btn-full" onclick="switchTab('tweet-classifier')">Launch Playground</button>
+                        </div>
+                    </div>
+
+                    <div class="glass-card system-info-card">
+                        <h5>Model Pipelines & Architecture</h5>
+                        <div class="architecture-flow">
+                            <div class="flow-step">
+                                <div class="step-num">01</div>
+                                <h6>Ingestion</h6>
+                                <p>Clean text, remove handles, unescape HTML, handle URLs.</p>
+                            </div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-step">
+                                <div class="step-num">02</div>
+                                <h6>NLTK NLP</h6>
+                                <p>Lemmatization & Tokenization to establish canonical forms.</p>
+                            </div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-step">
+                                <div class="step-num">03</div>
+                                <h6>Vectorization</h6>
+                                <p>Extract features with TF-IDF / N-gram Count Vectorizer.</p>
+                            </div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-step">
+                                <div class="step-num">04</div>
+                                <h6>Feature Selection</h6>
+                                <p>Select Percentile (Chi-2) trims 35% irrelevant tokens.</p>
+                            </div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-step">
+                                <div class="step-num">05</div>
+                                <h6>Inference</h6>
+                                <p>Predict class and estimate confidence scores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB: SPAM CLASSIFIER ================= -->
+                <section class="tab-pane" id="tab-spam-classifier">
+                    <div class="grid-layout cols-5-7">
+                        <!-- Left pane: Input and decision -->
+                        <div class="flex-column gap-6">
+                            <div class="glass-card">
+                                <h3>Test a Message</h3>
+                                <p class="card-subtitle">Enter any text message below to classify it as Spam or Ham.</p>
+                                <div class="form-group">
+                                    <textarea id="spam-input" placeholder="Type or paste your SMS message here..." rows="6"></textarea>
+                                </div>
+                                <div class="action-bar">
+                                    <button class="btn btn-secondary" onclick="insertSpamSample('ham')">Load Ham Example</button>
+                                    <button class="btn btn-secondary" onclick="insertSpamSample('spam')">Load Spam Example</button>
+                                    <button class="btn btn-primary" id="spam-submit-btn" onclick="runSpamClassification()">Classify Message</button>
+                                </div>
+                            </div>
+
+                            <div class="glass-card hidden" id="spam-result-card">
+                                <div class="result-header">
+                                    <h4>Classification Result</h4>
+                                    <div class="result-badge" id="spam-result-badge">Ham</div>
+                                </div>
+                                <div class="metric-progress-container">
+                                    <div class="progress-info">
+                                        <span>Model Confidence</span>
+                                        <span id="spam-confidence-text">99.2%</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" id="spam-confidence-fill" style="width: 99.2%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right pane: Analysis -->
+                        <div class="glass-card">
+                            <h3>Feature Contribution Analysis</h3>
+                            <p class="card-subtitle">Words inside the text that shifted the model towards Spam (red) or Ham (blue).</p>
+                            
+                            <div class="empty-state" id="spam-analysis-empty">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <p>Classify a message to inspect contributing features.</p>
+                            </div>
+
+                            <div class="features-list hidden" id="spam-analysis-list">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB: TWEET CLASSIFIER ================= -->
+                <section class="tab-pane" id="tab-tweet-classifier">
+                    <div class="grid-layout cols-5-7">
+                        <!-- Left pane: Input and decision -->
+                        <div class="flex-column gap-6">
+                            <div class="glass-card">
+                                <h3>Test a Tweet</h3>
+                                <p class="card-subtitle">Enter tweet text to classify it into Hate Speech, Offensive, or Normal.</p>
+                                <div class="form-group">
+                                    <textarea id="tweet-input" placeholder="Type or paste tweet content here..." rows="6"></textarea>
+                                </div>
+                                <div class="action-bar flex-wrap">
+                                    <button class="btn btn-secondary" onclick="insertTweetSample('normal')">Normal Ex</button>
+                                    <button class="btn btn-secondary" onclick="insertTweetSample('offensive')">Offensive Ex</button>
+                                    <button class="btn btn-secondary" onclick="insertTweetSample('hate')">Hate Speech Ex</button>
+                                    <button class="btn btn-primary" id="tweet-submit-btn" onclick="runTweetClassification()">Moderate Tweet</button>
+                                </div>
+                            </div>
+
+                            <div class="glass-card hidden" id="tweet-result-card">
+                                <div class="result-header">
+                                    <h4>Classification Result</h4>
+                                    <div class="result-badge" id="tweet-result-badge">Normal</div>
+                                </div>
+                                <div class="metric-progress-container">
+                                    <div class="progress-info">
+                                        <span>Model Confidence</span>
+                                        <span id="tweet-confidence-text">98.5%</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" id="tweet-confidence-fill" style="width: 98.5%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="multiclass-breakdown">
+                                    <h5>Class Probabilities</h5>
+                                    <div class="prob-row">
+                                        <span class="label">Normal</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill normal-color" id="prob-normal-bar"></div>
+                                        </div>
+                                        <span class="val" id="prob-normal-val">98.5%</span>
+                                    </div>
+                                    <div class="prob-row">
+                                        <span class="label">Offensive</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill offensive-color" id="prob-offensive-bar"></div>
+                                        </div>
+                                        <span class="val" id="prob-offensive-val">1.2%</span>
+                                    </div>
+                                    <div class="prob-row">
+                                        <span class="label">Hate Speech</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill hate-color" id="prob-hate-bar"></div>
+                                        </div>
+                                        <span class="val" id="prob-hate-val">0.3%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right pane: Analysis -->
+                        <div class="glass-card">
+                            <h3>Vocabulary Weights in Tweet</h3>
+                            <p class="card-subtitle">Tokens which heavily pushed the model to make this classification.</p>
+                            
+                            <div class="empty-state" id="tweet-analysis-empty">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <p>Moderate a tweet to inspect vocabulary weights.</p>
+                            </div>
+
+                            <div class="features-list hidden" id="tweet-analysis-list">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB: ANALYTICS ================= -->
+                <section class="tab-pane" id="tab-analytics">
+                    <div class="tabs-sub">
+                        <button class="sub-tabactive" id="btn-sub-spam" onclick="switchSubAnalytics('spam')">Spam Sentinel Analytics</button>
+                        <button class="" id="btn-sub-tweets" onclick="switchSubAnalytics('tweets')">Tweet Guard Analytics</button>
+                    </div>
+
+                    <!-- Spam Analytics Subpane -->
+                    <div id="sub-pane-spam" class="sub-pane active">
+                        <div class="grid-layout cols-2">
+                            <!-- Metrics Summary -->
+                            <div class="glass-card">
+                                <h3>Spam Sentinel Metrics</h3>
+                                <p class="card-subtitle">Overall evaluation on the SMS validation test set.</p>
+                                <table class="metrics-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Precision</th>
+                                            <th>Recall</th>
+                                            <th>F1-Score</th>
+                                            <th>Support</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="spam-report-body">
+                                        <!-- Loaded by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Confusion Matrix -->
+                            <div class="glass-card">
+                                <h3>Confusion Matrix</h3>
+                                <p class="card-subtitle">Actual vs. Predicted classes on test data.</p>
+                                <div class="matrix-container">
+                                    <div class="matrix-grid" id="spam-matrix-grid">
+                                        <!-- Generated by JS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Features -->
+                        <div class="glass-card">
+                            <h3>Spam Sentinel Top Vocabulary Features</h3>
+                            <p class="card-subtitle">Words with the highest log probability difference for each class.</p>
+                            <div class="grid-layout cols-2 mt-4">
+                                <div>
+                                    <h5 class="ham-text mb-3">Strongest Ham (Legitimate) Indicators</h5>
+                                    <div class="top-words-container" id="spam-top-ham-list">
+                                        <!-- Loaded by JS -->
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="spam-text mb-3">Strongest Spam Indicators</h5>
+                                    <div class="top-words-container" id="spam-top-spam-list">
+                                        <!-- Loaded by JS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tweets Analytics Subpane -->
+                    <div id="sub-pane-tweets" class="sub-pane">
+                        <div class="grid-layout cols-2">
+                            <!-- Metrics Summary -->
+                            <div class="glass-card">
+                                <h3>Tweet Guard Metrics</h3>
+                                <p class="card-subtitle">Overall evaluation on the imbalanced Twitter validation test set.</p>
+                                <table class="metrics-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Precision</th>
+                                            <th>Recall</th>
+                                            <th>F1-Score</th>
+                                            <th>Support</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tweets-report-body">
+                                        <!-- Loaded by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Confusion Matrix -->
+                            <div class="glass-card">
+                                <h3>Confusion Matrix</h3>
+                                <p class="card-subtitle">Actual vs. Predicted classes on test data.</p>
+                                <div class="matrix-container">
+                                    <div class="matrix-grid" id="tweets-matrix-grid">
+                                        <!-- Generated by JS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature selection details -->
+                        <div class="glass-card mb-6">
+                            <h3>35% Feature Selection & Dimensionality Reduction</h3>
+                            <p class="card-subtitle">Chi-Square (Chi-2) test results on CountVectorizer vocabulary features.</p>
+                            <div class="feature-reduction-banner">
+                                <div class="metric-item">
+                                    <span class="num" id="feat-before">15,000</span>
+                                    <span class="label">Initial Token N-grams</span>
+                                </div>
+                                <div class="reduction-factor">-35%</div>
+                                <div class="metric-item">
+                                    <span class="num" id="feat-after">9,750</span>
+                                    <span class="label">Filtered High-Significance Features</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Features Multi Class -->
+                        <div class="glass-card">
+                            <h3>Strongest Indicators per Tweet Category</h3>
+                            <p class="card-subtitle">Vocabulary terms with highest model coefficients in LinearSVC classification boundaries.</p>
+                            <div class="grid-layout cols-3 mt-4">
+                                <div>
+                                    <h5 class="normal-text mb-3">Normal Indicators</h5>
+                                    <div class="top-words-container" id="tweets-top-normal-list">
+                                        <!-- Loaded by JS -->
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="offensive-text mb-3">Offensive Indicators</h5>
+                                    <div class="top-words-container" id="tweets-top-offensive-list">
+                                        <!-- Loaded by JS -->
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="hate-text mb-3">Hate Speech Indicators</h5>
+                                    <div class="top-words-container" id="tweets-top-hate-list">
+                                        <!-- Loaded by JS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
