@@ -1,0 +1,409 @@
+{
+    "spam": {
+        "accuracy": 0.967713004484305,
+        "confusion_matrix": [
+            [
+                966,
+                0
+            ],
+            [
+                36,
+                113
+            ]
+        ],
+        "classification_report": {
+            "ham": {
+                "precision": 0.9640718562874252,
+                "recall": 1.0,
+                "f1-score": 0.9817073170731707,
+                "support": 966.0
+            },
+            "spam": {
+                "precision": 1.0,
+                "recall": 0.7583892617449665,
+                "f1-score": 0.8625954198473282,
+                "support": 149.0
+            },
+            "accuracy": 0.967713004484305,
+            "macro avg": {
+                "precision": 0.9820359281437125,
+                "recall": 0.8791946308724832,
+                "f1-score": 0.9221513684602495,
+                "support": 1115.0
+            },
+            "weighted avg": {
+                "precision": 0.9688730162992403,
+                "recall": 0.967713004484305,
+                "f1-score": 0.9657901218385065,
+                "support": 1115.0
+            }
+        },
+        "top_spam_features": [
+            {
+                "word": "claim",
+                "importance": 3.6540071722413803
+            },
+            {
+                "word": "prize",
+                "importance": 3.4425332940164015
+            },
+            {
+                "word": "won",
+                "importance": 3.3226303325356774
+            },
+            {
+                "word": "guaranteed",
+                "importance": 2.955037501720045
+            },
+            {
+                "word": "500",
+                "importance": 2.8869876944137003
+            },
+            {
+                "word": "1000",
+                "importance": 2.8777861369642714
+            },
+            {
+                "word": "urgent",
+                "importance": 2.833590863978234
+            },
+            {
+                "word": "18",
+                "importance": 2.833085435606998
+            },
+            {
+                "word": "tone",
+                "importance": 2.829183229663295
+            },
+            {
+                "word": "landline",
+                "importance": 2.76431715161105
+            },
+            {
+                "word": "150ppm",
+                "importance": 2.6778947535529447
+            },
+            {
+                "word": "awarded",
+                "importance": 2.6754332135529504
+            },
+            {
+                "word": "service",
+                "importance": 2.6670103452862683
+            },
+            {
+                "word": "150",
+                "importance": 2.644935193194243
+            },
+            {
+                "word": "tcs",
+                "importance": 2.6201656858797824
+            }
+        ],
+        "top_ham_features": [
+            {
+                "word": "ill",
+                "importance": 3.484075489935659
+            },
+            {
+                "word": "ltgt",
+                "importance": 3.3400721406540432
+            },
+            {
+                "word": "ok",
+                "importance": 3.1554979596832977
+            },
+            {
+                "word": "later",
+                "importance": 3.1416836131201418
+            },
+            {
+                "word": "come",
+                "importance": 3.0794285979593132
+            },
+            {
+                "word": "lor",
+                "importance": 3.0745805675047713
+            },
+            {
+                "word": "home",
+                "importance": 3.0154839574450847
+            },
+            {
+                "word": "im",
+                "importance": 2.9947635651084665
+            },
+            {
+                "word": "da",
+                "importance": 2.958185723480068
+            },
+            {
+                "word": "sorry",
+                "importance": 2.9025136456566605
+            },
+            {
+                "word": "got",
+                "importance": 2.6538166953076523
+            },
+            {
+                "word": "going",
+                "importance": 2.6277421868427444
+            },
+            {
+                "word": "thats",
+                "importance": 2.5963362469728093
+            },
+            {
+                "word": "oh",
+                "importance": 2.5320697345707064
+            },
+            {
+                "word": "yeah",
+                "importance": 2.509305670820906
+            }
+        ]
+    },
+    "tweets": {
+        "accuracy": 0.9201612903225806,
+        "confusion_matrix": [
+            [
+                26,
+                40,
+                6
+            ],
+            [
+                9,
+                923,
+                28
+            ],
+            [
+                0,
+                16,
+                192
+            ]
+        ],
+        "classification_report": {
+            "hate_speech": {
+                "precision": 0.7428571428571429,
+                "recall": 0.3611111111111111,
+                "f1-score": 0.48598130841121495,
+                "support": 72.0
+            },
+            "offensive": {
+                "precision": 0.9427987742594485,
+                "recall": 0.9614583333333333,
+                "f1-score": 0.9520371325425477,
+                "support": 960.0
+            },
+            "normal": {
+                "precision": 0.8495575221238938,
+                "recall": 0.9230769230769231,
+                "f1-score": 0.8847926267281107,
+                "support": 208.0
+            },
+            "accuracy": 0.9201612903225806,
+            "macro avg": {
+                "precision": 0.845071146413495,
+                "recall": 0.7485487891737893,
+                "f1-score": 0.7742703558939578,
+                "support": 1240.0
+            },
+            "weighted avg": {
+                "precision": 0.9155487920778667,
+                "recall": 0.9201612903225806,
+                "f1-score": 0.9136961030692745,
+                "support": 1240.0
+            }
+        },
+        "features_before": 15000,
+        "features_after": 9750,
+        "top_features": {
+            "hate_speech": [
+                {
+                    "word": "wetback",
+                    "importance": 0.9412451237450247
+                },
+                {
+                    "word": "faggot",
+                    "importance": 0.8044513056526791
+                },
+                {
+                    "word": "spic",
+                    "importance": 0.7615222370613133
+                },
+                {
+                    "word": "jew",
+                    "importance": 0.7550335163583581
+                },
+                {
+                    "word": "nigger",
+                    "importance": 0.7518518123784501
+                },
+                {
+                    "word": "queer",
+                    "importance": 0.6721094024077167
+                },
+                {
+                    "word": "fag",
+                    "importance": 0.6499068271935602
+                },
+                {
+                    "word": "feminist",
+                    "importance": 0.6129366632613911
+                },
+                {
+                    "word": "coon",
+                    "importance": 0.5964978263510736
+                },
+                {
+                    "word": "racist",
+                    "importance": 0.5674980767343106
+                },
+                {
+                    "word": "have never",
+                    "importance": 0.5666759080670938
+                },
+                {
+                    "word": "dyke bitch",
+                    "importance": 0.5487688628279092
+                },
+                {
+                    "word": "you lame",
+                    "importance": 0.5432655692248394
+                },
+                {
+                    "word": "white trash",
+                    "importance": 0.5430957078594304
+                },
+                {
+                    "word": "beaner",
+                    "importance": 0.5347356466951056
+                }
+            ],
+            "offensive": [
+                {
+                    "word": "bitch",
+                    "importance": 1.0768657723004864
+                },
+                {
+                    "word": "pussy",
+                    "importance": 1.0134443785060583
+                },
+                {
+                    "word": "hoe",
+                    "importance": 0.948841917159681
+                },
+                {
+                    "word": "nigs",
+                    "importance": 0.7302899369650966
+                },
+                {
+                    "word": "cunt",
+                    "importance": 0.7133197979809506
+                },
+                {
+                    "word": "nigguh",
+                    "importance": 0.6888899628684824
+                },
+                {
+                    "word": "niggah",
+                    "importance": 0.6759595073042319
+                },
+                {
+                    "word": "twat",
+                    "importance": 0.6752641980311211
+                },
+                {
+                    "word": "fucking trash",
+                    "importance": 0.6351162613280453
+                },
+                {
+                    "word": "shit is",
+                    "importance": 0.632564671091784
+                },
+                {
+                    "word": "wit the",
+                    "importance": 0.579199773148001
+                },
+                {
+                    "word": "hoes",
+                    "importance": 0.5609815938035022
+                },
+                {
+                    "word": "retarded",
+                    "importance": 0.5427917044454281
+                },
+                {
+                    "word": "nigga wa",
+                    "importance": 0.5389600638875249
+                },
+                {
+                    "word": "chief",
+                    "importance": 0.5251209898604284
+                }
+            ],
+            "normal": [
+                {
+                    "word": "hoe hoe",
+                    "importance": 0.7948942596474927
+                },
+                {
+                    "word": "yankee",
+                    "importance": 0.6648027452621688
+                },
+                {
+                    "word": "charlie",
+                    "importance": 0.606802922701054
+                },
+                {
+                    "word": "mock",
+                    "importance": 0.6029611099547069
+                },
+                {
+                    "word": "oreo",
+                    "importance": 0.6019854983447308
+                },
+                {
+                    "word": "jihadi",
+                    "importance": 0.6008422232868568
+                },
+                {
+                    "word": "bird",
+                    "importance": 0.5949036355755177
+                },
+                {
+                    "word": "zebra",
+                    "importance": 0.5943119974937056
+                },
+                {
+                    "word": "sole",
+                    "importance": 0.5857733850188297
+                },
+                {
+                    "word": "be ghetto",
+                    "importance": 0.5843329139894026
+                },
+                {
+                    "word": "crow",
+                    "importance": 0.5665492413240972
+                },
+                {
+                    "word": "yellow",
+                    "importance": 0.5541125660466905
+                },
+                {
+                    "word": "moet",
+                    "importance": 0.5421189250539893
+                },
+                {
+                    "word": "brownie",
+                    "importance": 0.5040277679407182
+                },
+                {
+                    "word": "ape",
+                    "importance": 0.45131351156653543
+                }
+            ]
+        }
+    }
+}
